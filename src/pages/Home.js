@@ -3,6 +3,9 @@ import Navbar from "../components/Navbar";
 import { SearchBackgroundImageDiv } from "../components/StyledComponents";
 import styled from "styled-components";
 import { Link } from "react-scroll";
+import { DummyData } from "../components/DummyData";
+import Card from "../components/Card";
+import Footer from "../components/Footer";
 
 const Home = () => {
   const types = ["Mobiles", "Computers", "Watches", "Sports"];
@@ -13,7 +16,7 @@ const Home = () => {
       style={{
         display: "flex",
         flexDirection: "column",
-        backgroundColor: "red",
+        // backgroundColor: "red",
         height: "100%",
       }}
     >
@@ -50,9 +53,44 @@ const Home = () => {
           </Link>
         ))}
       </div>
+      <CategoryHeading id="Mobiles">Mobiles</CategoryHeading>
+      <ListingRow>
+        {DummyData.map((DummyDataObject) => {
+          return <Card DummyData={DummyDataObject} />;
+        })}
+      </ListingRow>
+      <CategoryHeading id="Computers">Computers</CategoryHeading>
+      <ListingRow>
+        {DummyData.map((DummyDataObject) => {
+          return <Card DummyData={DummyDataObject} />;
+        })}
+      </ListingRow>
+      <CategoryHeading id="Watches">Watches</CategoryHeading>
+      <ListingRow>
+        {DummyData.map((DummyDataObject) => {
+          return <Card DummyData={DummyDataObject} />;
+        })}
+      </ListingRow>
+      <CategoryHeading id="Sports">Sports</CategoryHeading>
+      <ListingRow>
+        {DummyData.map((DummyDataObject) => {
+          return <Card DummyData={DummyDataObject} />;
+        })}
+      </ListingRow>
+      <Footer />
     </div>
   );
 };
+
+const ListingRow = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+`;
+
+const CategoryHeading = styled.h1`
+  color: black;
+`;
 
 const Tab = styled.button`
   /* padding: 50%; */

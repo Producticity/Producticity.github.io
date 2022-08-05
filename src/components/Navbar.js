@@ -4,6 +4,8 @@ import { NavButton } from "./StyledComponents";
 import styled from "styled-components";
 import NavLogo from "../assets/images/Navlogo.jpg";
 import { useNavigate } from "react-router-dom";
+import PhoneIphoneIcon from "@mui/icons-material/PhoneIphone";
+import AccessTimeIcon from "@mui/icons-material/AccessTime";
 
 const BoxShadowContainer = styled.div`
   width: 100%;
@@ -32,12 +34,14 @@ const NavbarContainer = styled.div`
   }
 `;
 const LeftContainer = styled.div`
-  width: 6rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 18rem;
   height: 5rem;
   min-height: 4rem;
   max-height: 5rem;
   min-width: 4rem;
-  max-width: 6rem;
   cursor: pointer;
 `;
 const Logo = styled.img`
@@ -117,10 +121,16 @@ const Navbar = ({ user, signOut }) => {
     <BoxShadowContainer>
       <NavbarContainer>
         <LeftContainer onClick={() => navigate("/", { replace: true })}>
-          <Logo src={NavLogo} alt="Logo" />
+          {/* <Logo src={NavLogo} alt="Logo" />
+           */}
+          <PhoneIphoneIcon fontSize="5px" color="gray" />
+          <p style={{ fontSize: "15px" }}>For Inquiry </p>
+          <p style={{ fontSize: "15px", fontWeight: "bold" }}>
+            (+1) 4698 193 007
+          </p>
         </LeftContainer>
         <RightContainer>
-          <NavbarTitleLinks>
+          {/* <NavbarTitleLinks>
             <NavButton
               variant="text"
               sx={{ color: "#2a48a4" }}
@@ -129,24 +139,22 @@ const Navbar = ({ user, signOut }) => {
             >
               Home
             </NavButton>
-            {user && (
-              <NavButton
-                variant="text"
-                sx={{ color: "#2a48a4" }}
-                onClick={signoutClick}
-              >
-                Sign out
-              </NavButton>
-            )}
-            <NavButton
-              sx={{ ml: "5px", background: "#2a48a4" }}
-              variant="contained"
-              component={Link}
-              to="/AddListing"
-            >
-              Add Listing
-            </NavButton>
-          </NavbarTitleLinks>
+          </NavbarTitleLinks> */}
+          <AccessTimeIcon />
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              backgroundColor: "red",
+              width: "10%",
+            }}
+          >
+            <p>
+              <b>DELIVERY</b>
+              WITHIN 42 HOURS
+            </p>
+          </div>
+
           <DrawerButton
             onClick={() => setOpenDrawer((curr) => !curr)}
             isScrolled={isScrolled}
@@ -164,24 +172,6 @@ const Navbar = ({ user, signOut }) => {
               onClick={() => setOpenDrawer(false)}
             >
               Home
-            </NavButton>
-            {user && (
-              <NavButton
-                variant="text"
-                sx={{ color: "#2a48a4" }}
-                onClick={signoutClick}
-              >
-                Sign out
-              </NavButton>
-            )}
-            <NavButton
-              sx={{ ml: "5px", background: "#2a48a4" }}
-              variant="contained"
-              component={Link}
-              to="/AddListing"
-              onClick={() => setOpenDrawer(false)}
-            >
-              Add Listing
             </NavButton>
           </MobileNavMenu>
         )}
